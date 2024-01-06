@@ -19,31 +19,3 @@ name: express-app
 access: 'undefined'
 vars: # 全局变量
   region: 'us-west-1'
-resources:
-  framework:
-    component: fc3
-    actions:
-      pre-deploy:
-        - run: npm install --production --registry=https://registry.npmmirror.com
-          path: ./code
-    props:
-      region: ${vars.region}
-      description: Serverless Devs Web Framework Function
-      runtime: custom
-      timeout: 60
-      customRuntimeConfig:
-        command:
-          - ./bootstrap
-        port: 9000
-      functionName: 'express-qq4d'
-      code: ./code
-  fc3_domain_0:
-    component: fc3-domain
-    props:
-      region: ${vars.region}
-      domainName: auto
-      protocol: HTTP
-      routeConfig:
-        routes:
-          - path: /*
-            functionName: 'express-qq4d'
