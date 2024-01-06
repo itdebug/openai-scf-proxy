@@ -14,7 +14,7 @@ services:
       function:
         name: openai-proxy
         description: openai-proxy
-        codeUri: ./code
+        codeUri: ./
         cpu: 0.05
         memorySize: 128
         diskSize: 512
